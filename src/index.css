@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #fff;
+  color: #222;
+  overflow-x: hidden;
+}
+
+/* Dithering pattern utilities */
+.dither-pattern-1 {
+  background-image: 
+    radial-gradient(circle at 20% 20%, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px, transparent 4px),
+    radial-gradient(circle at 80% 80%, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px, transparent 4px),
+    radial-gradient(circle at 40% 60%, transparent 1px, rgba(0,0,0,0.1) 1px, rgba(0,0,0,0.1) 3px, transparent 3px);
+  background-size: 8px 8px, 12px 12px, 6px 6px;
+  animation: dither-float 15s infinite ease-in-out;
+}
+
+.dither-pattern-2 {
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px),
+    repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0,0,0,0.05) 3px, rgba(0,0,0,0.05) 6px);
+  animation: dither-slide 20s infinite linear;
+}
+
+.dither-pattern-3 {
+  background: 
+    repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(0,0,0,0.06) 45deg, transparent 90deg),
+    radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.04) 70%);
+  background-size: 10px 10px, 100% 100%;
+  animation: dither-rotate 30s infinite linear;
+}
+
+@keyframes dither-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(2px, -2px) scale(1.02); }
+  66% { transform: translate(-2px, 2px) scale(0.98); }
+}
+
+@keyframes dither-slide {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 16px 16px, -24px 24px; }
+}
+
+@keyframes dither-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(30px, -30px) rotate(90deg); }
+  50% { transform: translate(-20px, 40px) rotate(180deg); }
+  75% { transform: translate(40px, 20px) rotate(270deg); }
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}

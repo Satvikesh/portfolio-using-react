@@ -1,0 +1,26 @@
+/* Styles for components */
+
+/* Common utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.section {
+  padding: 5rem 5%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Colors as CSS variables */
+:root {
+  --color-primary: #ffeb3b;
+  --color-secondary: #4ecdc4;
+  --color-accent: #ff6b6b;
+  --color-dark: #222;
+  --color-gray: #666;
+  --color-light-gray: #f0f0f0;
+}
